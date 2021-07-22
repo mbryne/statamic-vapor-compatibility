@@ -42,7 +42,7 @@ class StatamicVaporCompatibilityServiceProvider extends ServiceProvider
         config([
             'filesystems.disks.tempDirectory' => [
                 'driver' => 'local',
-                'root' => '/tmp/statamic',
+                'root' => '/tmp',
             ]
         ]);
     }
@@ -52,18 +52,18 @@ class StatamicVaporCompatibilityServiceProvider extends ServiceProvider
         config([
             'statamic.assets.image_manipulation.cache_path' => TemporaryStorage::public_path('img'),
 
-            'statamic.forms.forms' => TemporaryStorage::resource_path('forms'),
-            'statamic.forms.submissions' => TemporaryStorage::storage_path('forms'),
+//            'statamic.forms.forms' => TemporaryStorage::resource_path('forms'),
+//            'statamic.forms.submissions' => TemporaryStorage::storage_path('forms'),
 
-            'statamic.git.paths' => [
-                TemporaryStorage::base_path('content'),
-                TemporaryStorage::base_path('users'),
-                TemporaryStorage::resource_path('blueprints'),
-                TemporaryStorage::resource_path('fieldsets'),
-                TemporaryStorage::resource_path('forms'),
-                TemporaryStorage::resource_path('users'),
-                TemporaryStorage::storage_path('forms'),
-            ],
+//            'statamic.git.paths' => [
+//                TemporaryStorage::base_path('content'),
+//                TemporaryStorage::base_path('users'),
+//                TemporaryStorage::resource_path('blueprints'),
+//                TemporaryStorage::resource_path('fieldsets'),
+//                TemporaryStorage::resource_path('forms'),
+//                TemporaryStorage::resource_path('users'),
+//                TemporaryStorage::storage_path('forms'),
+//            ],
 
             'statamic.revisions.path' => TemporaryStorage::storage_path('statamic/revisions'),
 
@@ -80,13 +80,13 @@ class StatamicVaporCompatibilityServiceProvider extends ServiceProvider
             'statamic.stache.stores.asset-containers.directory' => TemporaryStorage::base_path('content/assets'),
             'statamic.stache.stores.users.directory' => TemporaryStorage::base_path('users'),
 
-            'statamic.static_caching.strategies.full.path' => TemporaryStorage::public_path('static'),
+//            'statamic.static_caching.strategies.full.path' => TemporaryStorage::public_path('static'),
 
-            'statamic.system.addons_path' => base_path('addons'),
-
-            'statamic.users.repositories.file.paths.users' => TemporaryStorage::base_path('users'),
-            'statamic.users.repositories.file.paths.roles' => TemporaryStorage::resource_path('users/roles.yaml'),
-            'statamic.users.repositories.file.paths.groups' => TemporaryStorage::resource_path('users/groups.yaml'),
+//            'statamic.system.addons_path' => base_path('addons'),
+//
+//            'statamic.users.repositories.file.paths.users' => TemporaryStorage::base_path('users'),
+//            'statamic.users.repositories.file.paths.roles' => TemporaryStorage::resource_path('users/roles.yaml'),
+//            'statamic.users.repositories.file.paths.groups' => TemporaryStorage::resource_path('users/groups.yaml'),
         ]);
     }
 }
