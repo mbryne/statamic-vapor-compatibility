@@ -66,16 +66,16 @@ class StatamicVaporCompatibilityServiceProvider extends ServiceProvider
 
             'statamic.search.drivers.local.path' => TemporaryStorage::storage_path('statamic/search'),
 
-            'statamic.stache.stores.taxonomies.directory' => TemporaryStorage::base_path('content/taxonomies'),
-            'statamic.stache.stores.terms.directory' => TemporaryStorage::base_path('content/taxonomies'),
-            'statamic.stache.stores.collections.directory' => TemporaryStorage::base_path('content/collections'),
-            'statamic.stache.stores.entries.directory' => TemporaryStorage::base_path('content/collections'),
-            'statamic.stache.stores.navigation.directory' => TemporaryStorage::base_path('content/navigation'),
-            'statamic.stache.stores.collection-trees.directory' => TemporaryStorage::base_path('content/trees/collections'),
-            'statamic.stache.stores.nav-trees.directory' => TemporaryStorage::base_path('content/trees/navigation'),
-            'statamic.stache.stores.globals.directory' => TemporaryStorage::base_path('content/globals'),
-            'statamic.stache.stores.asset-containers.directory' => TemporaryStorage::base_path('content/assets'),
-            'statamic.stache.stores.users.directory' => TemporaryStorage::base_path('users'),
+//            'statamic.stache.stores.taxonomies.directory' => TemporaryStorage::base_path('content/taxonomies'),
+//            'statamic.stache.stores.terms.directory' => TemporaryStorage::base_path('content/taxonomies'),
+//            'statamic.stache.stores.collections.directory' => TemporaryStorage::base_path('content/collections'),
+//            'statamic.stache.stores.entries.directory' => TemporaryStorage::base_path('content/collections'),
+//            'statamic.stache.stores.navigation.directory' => TemporaryStorage::base_path('content/navigation'),
+//            'statamic.stache.stores.collection-trees.directory' => TemporaryStorage::base_path('content/trees/collections'),
+//            'statamic.stache.stores.nav-trees.directory' => TemporaryStorage::base_path('content/trees/navigation'),
+//            'statamic.stache.stores.globals.directory' => TemporaryStorage::base_path('content/globals'),
+//            'statamic.stache.stores.asset-containers.directory' => TemporaryStorage::base_path('content/assets'),
+//            'statamic.stache.stores.users.directory' => TemporaryStorage::base_path('users'),
 
 //            'statamic.static_caching.strategies.full.path' => TemporaryStorage::public_path('static'),
 
