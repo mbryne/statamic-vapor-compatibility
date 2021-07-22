@@ -14,34 +14,18 @@ use function config;
 
 class StatamicVaporCompatibilityServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
+
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/statamic-vapor-compatibility.php', 'statamic-vapor-compatibility');
     }
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__ . '/../config/statamic-vapor-compatibility.php' => config_path('statamic-vapor-compatibility.php'),
-            ], 'statamic-vapor-compatibility-config');
-
             $this->commands([
                 CheckDockerfileContent::class
             ]);
         }
-
-        Event::subscribe(config('statamic-vapor-compatibility.event_subscriber', StatamicVaporFileModificationSubscriber::class));
 
         $kernel = $this->app->make(Kernel::class);
         $kernel->pushMiddleware(StatamicVaporCheckIfTempFilesExist::class);
@@ -58,7 +42,7 @@ class StatamicVaporCompatibilityServiceProvider extends ServiceProvider
         config([
             'filesystems.disks.tempDirectory' => [
                 'driver' => 'local',
-                'root' => '/tmp',
+                'root' => '/tmp/statamic',
             ]
         ]);
     }
