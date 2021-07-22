@@ -26,7 +26,6 @@ use function trim;
 
 class StatamicVaporCheckIfTempFilesExist
 {
-    use GitManageable;
 
     /**
      * Handle an incoming request.
@@ -42,31 +41,9 @@ class StatamicVaporCheckIfTempFilesExist
             return $next($request);
         }
 
-        throw_unless(
-            config('statamic-vapor-compatibility.files_repository_name')
-                && config('statamic-vapor-compatibility.files_repository'),
-            InvalidFilesRepositorySettings::class,
-            'Please set STATAMIC_FILES_REPOSITORY and STATAMIC_FILES_REPOSITORY_NAME variables in your .env file for this stage.'
-        );
-
         $temporaryStorage = Storage::disk(TemporaryStorage::TEMP_DISK_NAME);
 
-        if(! $temporaryStorage->exists(config('statamic-vapor-compatibility.files_repository_name'))) {
-            $this->gitClone();
-        }
-
-        if(
-            $request->is(config('statamic.cp.route'))
-                || $request->is(config('statamic.cp.route') . '/*')
-        ) {
-            // Force update on every page load of control panel
-            $this->gitPull();
-        } else {
-            // Update only if new version exists
-            $this->updateToNewVersion();
-        }
-
-
+        // TODO: convert to command for vapor build step
         foreach(config('statamic-vapor-compatibility.symlinks') as $src => $dest) {
             if(! $temporaryStorage->exists($dest)) {
                 $temporaryStorage->makeDirectory($dest);
