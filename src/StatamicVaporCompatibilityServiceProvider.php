@@ -27,9 +27,6 @@ class StatamicVaporCompatibilityServiceProvider extends ServiceProvider
             ]);
         }
 
-        $kernel = $this->app->make(Kernel::class);
-        $kernel->pushMiddleware(StatamicVaporCheckIfTempFilesExist::class);
-
         // Add tempDirectory disk
         $this->addTemporaryDiskToConfig();
 
